@@ -1,5 +1,7 @@
 # 📖 Gerbang Literasi — E-Library & Digital DRM System
 
+<video src="assets/vid/perpus.mp4" width="100%" controls autoplay loop muted></video>
+
 ---
 
 ### 👨‍🎓 Identitas Pengembang
