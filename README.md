@@ -124,11 +124,4 @@ Gunakan akun di bawah ini untuk menguji fitur dengan peran (role) yang berbeda:
 
 ---
 
-## 📝 Catatan Penggunaan
 
-> [!IMPORTANT]
-> Sistem pengembalian lisensi otomatis (*auto-expiration*) berjalan secara trigger-based (setiap kali ada user mengakses dashboard atau membuka e-book). Hal ini menghindari kebutuhan setup background daemon/cronjob pada server hosting sederhana.
-
-* File dokumen PDF disimpan secara privat di dalam direktori `storage/ebooks/`.
-* Seluruh foto profil pengguna disimpan di direktori `storage/avatars/`.
-* Seluruh rute aset web menggunakan absolute path berbasis konstanta `BASE_URL` untuk mencegah broken links.
