@@ -1,6 +1,7 @@
 # Gerbang Literasi — E-Library & Digital DRM System
 
-<video src="assets/vid/perpus.mp4" width="100%" controls autoplay loop muted></video>
+<img src="assets/img/icon.png" width="100%" alt="Icon Perpustakaan">
+
 
 ---
 
@@ -11,9 +12,7 @@
 
 ---
 
-Platform e-library digital modern berbasis web yang mengimplementasikan sistem pembatasan lisensi digital (Digital Rights Management / DRM), antrean lisensi otomatis, serta fitur pembaca e-book langsung di dalam browser tanpa plugin tambahan.
-
-Sistem ini didesain menggunakan **PHP Native** murni dengan arsitektur berstandar tinggi, antarmuka premium, serta efisiensi memori yang optimal untuk rendering dokumen e-book berukuran besar (optimized for iOS Safari & Mobile browsers).
+Platform e-library modern berbasis web dengan sistem DRM, antrean lisensi otomatis, dan pembaca e-book langsung di browser. Dikembangkan menggunakan **PHP Native** dengan arsitektur yang terstruktur dan antarmuka premium.
 
 ---
 
@@ -29,22 +28,24 @@ Klik pada gambar untuk memperbesar (zoom) tampilan.
 
 ## 🚀 Fitur Utama
 
-### 📱 1. Responsive & Smooth UI/UX
-* **Smooth Hamburger Drawer Menu**: Panel navigasi responsif dengan animasi geser ala laci yang halus (*drawer-like slide animation*).
-* **Responsive Staggered Items**: Efek transisi masuk item secara bertahap (*staggered animations*) untuk menu navigasi dan tombol aksi.
-* **Dynamic Scroll States**: Efek perubahan tampilan header navbar secara real-time saat halaman di-scroll ke bawah.
-* **Mobile Dropdown Inline**: Penyesuaian layout otomatis pada layar perangkat mobile, menjaga menu dropdown pengguna agar tidak terpotong oleh pembatas layar (*viewport clipping*).
+### 1. Antarmuka Responsif dan Interaktif
+* **Menu Navigasi Responsif**: Menggunakan panel navigasi berbentuk drawer dengan animasi geser yang halus.
+* **Animasi Elemen Bertahap**: Item menu dan tombol aksi ditampilkan secara berurutan untuk memberikan transisi yang lebih nyaman.
+* **Header Dinamis**: Tampilan header menyesuaikan secara otomatis berdasarkan posisi scroll pengguna.
+* **Dropdown Ramah Mobile**: Tata letak menu dropdown disesuaikan agar tetap terlihat dengan baik pada berbagai ukuran layar..
 
-### 🛡️ 2. Digital Rights Management (DRM) & Auto-Return
-* **Strict License Control**: Pengguna hanya dapat membaca e-book jika memiliki lisensi aktif (status peminjaman `dipinjam`).
-* **Auto-Expiration & Auto-Return**: Lisensi e-book secara otomatis dicabut ketika masa berlaku habis tanpa perlu tindakan manual dari pustakawan.
-* **Precision Queue System**: Apabila lisensi e-book habis (stok buku 0), pengguna lain dapat masuk ke daftar antrean (*waiting list*). Lisensi akan otomatis dialihkan ke antrean berikutnya sesegera mungkin setelah lisensi aktif sebelumnya dilepaskan/dikembalikan.
+### 2. Manajemen Lisensi Digital dan Pengembalian Otomatis
+* **Kontrol Lisensi**: E-book hanya dapat diakses oleh pengguna yang memiliki status peminjaman aktif.
+* **Pengembalian Otomatis**: Sistem mengakhiri masa peminjaman dan mengembalikan lisensi secara otomatis setelah batas waktu berakhir.
+* **Sistem Antrean**: Ketika seluruh lisensi sedang digunakan, pengguna dapat bergabung dalam daftar antrean. Lisensi akan diberikan secara otomatis kepada pengguna berikutnya setelah tersedia.
 
-### 📄 3. Modern E-Book PDF Reader
-* **Dual Reading Mode**: Pengguna dapat memilih mode membaca secara vertikal (*Scroll*) atau per halaman (*Instagram Slide Style*).
-* **Instagram-Style Slide View**: Transisi halaman dengan animasi geser berbasis *touch-swipe* (untuk mobile/tablet) dan drag mouse (untuk desktop).
-* **Memory Optimization & Lazy Loading**: Kanvas PDF hanya dirender untuk halaman aktif dan halaman terdekat (adjacent pages). Halaman yang jauh akan dihapus otomatis dari memori demi performa responsif di perangkat mobile.
-* **Source Protection**: File e-book diubah menjadi representasi base64 dan dilindungi dari klik kanan, pencetakan langsung, serta pintasan keyboard pengunduhan (`Ctrl+P`, `Ctrl+S`, `Ctrl+U`).
+
+### 3. Pembaca E-Book PDF
+
+* **Dua Mode Membaca**: Pengguna dapat memilih tampilan gulir vertikal atau navigasi per halaman.
+* **Navigasi Interaktif**: Perpindahan halaman mendukung gestur geser pada perangkat mobile serta drag menggunakan mouse pada desktop.
+* **Pemuatan Halaman Efisien**: Sistem hanya memuat halaman yang sedang dibaca dan halaman di sekitarnya untuk menjaga performa.
+* **Perlindungan Dokumen**: Akses file dibatasi dengan menonaktifkan klik kanan, pencetakan, penyimpanan, dan beberapa pintasan keyboard tertentu.
 
 ---
 
@@ -89,27 +90,45 @@ e-library/
 * **PHP**: Versi 7.4 ke atas
 * **Database**: MySQL / MariaDB
 
-### Langkah-langkah
+### Langkah Instalasi
 
-1. **Copy/Clone Project**
-   Letakkan direktori project ini ke dalam folder server lokal Anda (misal `C:\laragon\www\e-library` atau `htdocs/e-library`).
+1. **Salin Project**
+   Letakkan folder project ke dalam direktori server lokal, seperti:
 
-2. **Setup Database**
-   * Nyalakan server MySQL.
-   * Import file [elibrary_db.sql](file:///c:/laragon/www/perpustakaan/elibrary_db.sql) ke dalam server MySQL Anda (melalui phpMyAdmin / Adminer / CLI).
-     > [!NOTE]
-     > Anda tidak perlu membuat database kosong terlebih dahulu karena perintah `CREATE DATABASE IF NOT EXISTS elibrary_db` dan `USE elibrary_db` sudah tertulis otomatis di bagian atas file SQL tersebut.
+   ```text
+   C:\laragon\www\e-library
+   ```
 
-3. **Konfigurasi Server & Database**
-   Sesuaikan konfigurasi koneksi database dan domain web Anda pada file berikut:
-   * **Database**: Buka [database.php](file:///c:/laragon/www/perpustakaan/config/database.php) lalu atur `host`, `db_name` (`elibrary_db`), `username`, dan `password`.
-   * **URL Utama**: Buka [config.php](file:///c:/laragon/www/perpustakaan/config/config.php) lalu sesuaikan konstanta `BASE_URL` (misal: `http://localhost/e-library/`).
+   atau:
+
+   ```text
+   C:\xampp\htdocs\e-library
+   ```
+
+2. **Siapkan Database**
+   Jalankan layanan MySQL, kemudian impor file `elibrary_db.sql` melalui phpMyAdmin, Adminer, atau MySQL CLI.
+
+   Database tidak perlu dibuat secara manual karena file SQL sudah dilengkapi perintah untuk membuat dan memilih database `elibrary_db`.
+
+3. **Atur Konfigurasi**
+   Sesuaikan pengaturan berikut:
+
+   * Buka `config/database.php`, kemudian atur `host`, `db_name`, `username`, dan `password`.
+   * Buka `config/config.php`, kemudian sesuaikan nilai `BASE_URL`.
+
+   Contoh:
+
+   ```php
+   define('BASE_URL', 'http://localhost/e-library/');
+   ```
 
 4. **Jalankan Aplikasi**
-   Buka browser Anda lalu ketik alamat berikut:
+   Buka browser dan akses:
+
    ```text
    http://localhost/e-library/
    ```
+
 
 ---
 
