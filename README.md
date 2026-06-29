@@ -15,6 +15,16 @@ Sistem ini didesain menggunakan **PHP Native** murni dengan arsitektur berstanda
 
 ---
 
+## 📸 Preview Tampilan
+
+Klik pada gambar untuk memperbesar (zoom) tampilan.
+
+| [![Landing Page](assets/img/ss/landing_page.png)](assets/img/ss/landing_page.png) | [![Katalog Book](assets/img/ss/katalog_book.png)](assets/img/ss/katalog_book.png) | [![Admin Dashboard](assets/img/ss/admin_dashboard.png)](assets/img/ss/admin_dashboard.png) |
+| :---: | :---: | :---: |
+| **Landing Page** | **Katalog Book** | **Admin Dashboard** |
+
+---
+
 ## 🚀 Fitur Utama
 
 ### 📱 1. Responsive & Smooth UI/UX
