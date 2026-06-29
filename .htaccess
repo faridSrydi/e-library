@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# 1. Redirect URLs with trailing slashes to non-trailing slashes (except for real directories)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# 2. Rewrite detail-buku/slug-judul to detail-buku.php?slug=slug-judul
+RewriteRule ^detail-buku/([^/]+)/?$ detail-buku.php?slug=$1 [QSA,L]
+
+# 3. Rewrite baca-ebook/slug-judul to baca-ebook.php?slug=slug-judul
+RewriteRule ^baca-ebook/([^/]+)/?$ baca-ebook.php?slug=$1 [QSA,L]
+
+# 3. Rewrite clean extensionless URLs to PHP files internally
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^.]+)$ $1.php [L]
